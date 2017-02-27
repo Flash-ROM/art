@@ -612,10 +612,10 @@ struct CmdlineParser {
 template <typename TVariantMap,
           template <typename TKeyValue> class TVariantMapKey>
 template <typename TArg>
-CmdlineParser<TVariantMap, TVariantMapKey>::ArgumentBuilder<TArg>
+typename CmdlineParser<TVariantMap, TVariantMapKey>::template ArgumentBuilder<TArg>
 CmdlineParser<TVariantMap, TVariantMapKey>::CreateArgumentBuilder(
     CmdlineParser<TVariantMap, TVariantMapKey>::Builder& parent) {
-  return CmdlineParser<TVariantMap, TVariantMapKey>::ArgumentBuilder<TArg>(
+  return typename CmdlineParser<TVariantMap, TVariantMapKey>::ArgumentBuilder<TArg>(
       parent, parent.save_destination_);
 }
 
